@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвертор Фазы Аудио</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Инвертор Фазы Аудио и Визуализатор</h1>
+    </header>
+
+    <main>
+        <section class="io-section">
+            <div class="card audio-input" id="record-card">
+                <h2><span class="icon">🎤</span> Запись Аудио</h2>
+                <div class="waveform-placeholder" id="recording-visualizer-placeholder">
+                    <canvas id="mini-visualizer-canvas" width="280" height="60"></canvas>
+                </div>
+                <button id="recordButton">Начать Запись</button>
+                <p class="status-text" id="recordingStatus">Нажмите, чтобы начать запись</p>
+            </div>
+
+            <div class="card audio-input" id="upload-card">
+                <h2><span class="icon">📁</span> Загрузить Аудиофайл</h2>
+                <div id="upload-area">
+                    <p id="uploadStatus">Аудио не загружено</p>
+                    <input type="file" id="fileInput" accept=".mp3, .wav, .ogg, .m4a, .aac">
+                    <label for="fileInput" class="upload-button">Выбрать Аудиофайл</label>
+                </div>
+                <p class="supported-formats">Поддерживаются: MP3, WAV, OGG, M4A, AAC</p>
+            </div>
+        </section>
+
+        <section class="card playback-section">
+            <h2><span class="icon">🎧</span> Воспроизведение Аудио</h2>
+            <div class="playback-main-controls">
+                <div class="control-group">
+                    <div class="playback-indicator original-indicator" id="originalIndicator"></div>
+                    <button id="playOriginalButton" disabled>Оригинал</button>
+                </div>
+                <div class="control-group">
+                    <div class="playback-indicator processed-indicator" id="processedIndicator"></div>
+                    <button id="playProcessedButton" disabled>Обработанный</button>
+                </div>
+            </div>
+            <div class="playback-additional-controls">
+                <button id="playBothButton" class="play-both-button" disabled>Сумма (Подавление)</button>
+                <button id="stopButton" class="stop-button" disabled>Стоп</button>
+            </div>
+        </section>
+
+        <section class="card visualization-section">
+            <h2><span class="icon">📊</span> Визуализация</h2>
+            <div class="viz-controls">
+                <button id="waveformViewButton" class="active">Форма Волны</button>
+                <button id="frequencyViewButton">Частоты</button>
+            </div>
+            <canvas id="mainVisualizerCanvas"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>Создано @Verieth</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
